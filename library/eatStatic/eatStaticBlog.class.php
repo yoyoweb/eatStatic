@@ -309,11 +309,7 @@ class eatStaticBlogPost extends eatStatic {
 				// the body section can be the rest of the file,
 				// or you can mark the end of the body section with --
 				// you can then put meta data fields in the file 
-				$a = ($parts[$i] == '--');
-				print_r('DEBUG 0 '.$a); //DEBUG
-				print "A: $a\n";
 				if($parts[$i] == '--' && $meta == false){
-					print_r('DEBUG YES '.$parts[$i]); //DEBUG
 					$body = false;
 					$meta = true;
 				}
@@ -327,12 +323,8 @@ class eatStaticBlogPost extends eatStatic {
 					}
 				}
 				
-				//print_r('DEBUG 1'.$meta.$parts[$i]); //DEBUG
-				echo '<pre>';print_r($parts[$i]);echo  '</pre>';
-
 				// get meta info
 				if($meta && $parts[$i] != '--'){
-					print_r('DEBUG 2'.$meta); //DEBUG
 					//die('meta:'.$parts[$i]);
 					if($parts[$i] != ''){
 						$this->handleMeta($parts[$i]);
@@ -406,8 +398,6 @@ class eatStaticBlogPost extends eatStatic {
 		switch($key){
 			case "tags":
 				$tags = explode(",", $value);
-//debug
-				print_r($this->tags);
 
 				foreach($tags as $tag){
 				    if(trim($tag) != ''){
